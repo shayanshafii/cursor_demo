@@ -7,14 +7,15 @@ def play_guessing_game():
     max_guesses = 3
     guesses_remaining = max_guesses
     
-    print("Welcome to the Number Guessing Game!")
+    print("/nWelcome to the Number Guessing Game!")
     print(f"I'm thinking of a number between 1 and 10. You have {max_guesses} guesses.")
     
     # LOOP FOR USER GUESSES
     while guesses_remaining > 0:
         try:
             # GET USER INPUT
-            guess = int(input(f"\nEnter your guess ({guesses_remaining} guess(es) remaining): "))
+            current_guess = max_guesses - guesses_remaining + 1
+            guess = int(input(f"\nEnter your guess ({current_guess}/{max_guesses}): "))
             
             # CHECK IF GUESS IS OUT OF RANGE
             if guess < 1 or guess > 10:
@@ -27,11 +28,11 @@ def play_guessing_game():
                 return
             
             # PROVIDE FEEDBACK ON GUESS
-            guesses_remaining -= 1
             if guess < secret_number:
                 print("Too low!")
             else:
                 print("Too high!")
+            guesses_remaining -= 1
             
             # CHECK IF USER HAS RUN OUT OF GUESSES
             if guesses_remaining == 0:
