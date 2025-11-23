@@ -7,7 +7,7 @@ def play_guessing_game():
     max_guesses = 3
     guesses_remaining = max_guesses
     
-    print("/nWelcome to the Number Guessing Game!")
+    print("\nWelcome to the Number Guessing Game!")
     print(f"I'm thinking of a number between 1 and 10. You have {max_guesses} guesses.")
     
     # LOOP FOR USER GUESSES
