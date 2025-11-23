@@ -27,16 +27,12 @@ def play_guessing_game():
                 print(f"Congratulations! You guessed the number {secret_number} correctly!")
                 return
             
-            # PROVIDE FEEDBACK ON GUESS
-            if guess < secret_number:
-                print("Too low!")
-            else:
-                print("Too high!")
             guesses_remaining -= 1
+            print(f"Sorry, that's not the correct number. You have {guesses_remaining} guesses remaining.")
             
             # CHECK IF USER HAS RUN OUT OF GUESSES
             if guesses_remaining == 0:
-                print(f"\nSorry, you've run out of guesses. The number was {secret_number}.")
+                print(f"\You've run out of guesses! The number was {secret_number}.")
         
         except ValueError:
             print("Please enter a valid integer.")
