@@ -14,8 +14,7 @@ def play_guessing_game():
     while guesses_remaining > 0:
         try:
             # GET USER INPUT
-            current_guess = max_guesses - guesses_remaining + 1
-            guess = int(input(f"\nEnter your guess ({current_guess}/{max_guesses}): "))
+            guess = int(input(f"\nEnter your guess (you currently have {guesses_remaining} guesses remaining): "))
             
             # CHECK IF GUESS IS OUT OF RANGE
             if guess < 1 or guess > 10:
@@ -26,13 +25,17 @@ def play_guessing_game():
             if guess == secret_number:
                 print(f"Congratulations! You guessed the number {secret_number} correctly!")
                 return
-            
-            guesses_remaining -= 1
-            print(f"Sorry, that's not the correct number. You have {guesses_remaining} guesses remaining.")
+            else:
+                guesses_remaining -= 1
+                if guess < secret_number:
+                    print("Too low!", end=" ")
+                else:
+                    print("Too high!", end=" ")
+                print(f"You have {guesses_remaining} guesses remaining.")
             
             # CHECK IF USER HAS RUN OUT OF GUESSES
             if guesses_remaining == 0:
-                print(f"\You've run out of guesses! The number was {secret_number}.")
+                print(f"\nYou've run out of guesses! The number was {secret_number}.\n")
         
         except ValueError:
             print("Please enter a valid integer.")
