@@ -14,8 +14,8 @@ def play_guessing_game():
     while guesses_remaining > 0:
         try:
             # GET USER INPUT
-            guess = int(input(f"\nEnter your guess (you currently have {guesses_remaining} guesses remaining): "))
-            
+            current_guess = max_guesses - guesses_remaining + 1
+            guess = int(input(f"\nEnter your guess ({current_guess}/{max_guesses}): "))
             # CHECK IF GUESS IS OUT OF RANGE
             if guess < 1 or guess > 10:
                 print("Please enter a number between 1 and 10.")
