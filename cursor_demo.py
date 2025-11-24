@@ -27,6 +27,10 @@ def play_guessing_game():
                 return
             else:
                 guesses_remaining -= 1
+                if guess < secret_number:
+                    print("Too low!")
+                else:
+                    print("Too high!")
                 print(f"You have {guesses_remaining} guesses remaining.")
             
             # CHECK IF USER HAS RUN OUT OF GUESSES
